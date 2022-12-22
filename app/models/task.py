@@ -21,6 +21,9 @@ class Task(db):
     # users.id <--> tasks.user_id "one user can have many tasks"
     task_owner = db.relationship("User", back_populates="user_task")
 
+    # reviews.task_id <--> tasks.id "one task can have many reviews"
+    task_review = db.relationship("Review", back_populates="review_task")
+
     def to_dict(self):
         return {
             "id": self.id,
