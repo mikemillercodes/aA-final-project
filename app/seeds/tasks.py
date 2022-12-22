@@ -16,10 +16,55 @@ def seed_tasks():
         price=55,
         task_img_url="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/c_fill,h_200,w_200/v1650386921/bv1adylph9ihvqjhzmlk.jpg"
     )
-    task2 = Task(
-    user_id=3,
-    title='Shipping Services',
-    description='If you need help packing and tagging boxes, Taskers are here for you! Get the shipping help you need today.',
-    price=35,
-    task_img_url="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/c_fill,h_200,w_200/v1650479047/vfxgooozxnabyxt9rkda.jpg"
-)
+    task3 = Task(
+        user_id=3,
+        title='Shipping Services',
+        description='If you need help packing and tagging boxes, Taskers are here for you! Get the shipping help you need today.',
+        price=35,
+        task_img_url="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/c_fill,h_200,w_200/v1650479047/vfxgooozxnabyxt9rkda.jpg"
+    )
+    task4 = Task(
+        user_id=1,
+        title='Inventory Sorting',
+        description="Sorting your inventory doesn't have to be a huge hassle. Hire a Tasker to organize your inventory today.",
+        price=67,
+        task_img_url="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/c_fill,h_200,w_200/v1650903956/ddpi2ei6hhm6lfrhjxxj.jpg"
+    )
+    task5 = Task(
+        user_id=2,
+        title='Warehouse Organization',
+        description="Get your warehouse organized with help from a skilled Tasker.",
+        price=80,
+        task_img_url="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/c_fill,h_200,w_200/v1650906503/amrtufotl6oxxt8d9oen.jpg"
+    )
+    task6 = Task(
+        user_id=3,
+        title='Drop Off Donations',
+        description="Need those donations dropped off? Hire a tasker to do it for you.",
+        price=25,
+        task_img_url="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/c_fill,h_200,w_200/v1650907080/xcpcbylmwslemwypwvya.jpg"
+    )
+
+    db.session.add(task1)
+    db.session.add(task2)
+    db.session.add(task3)
+    db.session.add(task4)
+    db.session.add(task5)
+    db.session.add(task6)
+    db.session.commit()
+
+# Uses a raw SQL query to TRUNCATE or DELETE the tasks table. SQLAlchemy doesn't
+# have a built in function to do this. With postgres in production TRUNCATE
+# removes all the data from the table, and RESET IDENTITY resets the auto
+# incrementing primary key, CASCADE deletes any dependent entities.  With
+# sqlite3 in development you need to instead use DELETE to remove all data and
+# it will reset the primary keys for you as well.
+def undo_tasks():
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.tasks RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM tasks")
+        
+    db.session.commit()
+
+    
