@@ -4,7 +4,7 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 # TASK MODEL:
 ###############
 
-class Task(db):
+class Task(db.Model):
     __tablename__ = "tasks"
 
     if environment == "production":

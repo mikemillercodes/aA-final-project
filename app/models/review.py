@@ -4,7 +4,7 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 # REVIEW MODEL:
 ###############
 
-class Review(db):
+class Review(db.Model):
     __tablename__ = "reviews"
 
     if environment == "production":
@@ -21,7 +21,7 @@ class Review(db):
     review_task = db.relationship("Task", back_populates="task_review")
 
     # users.id <--> reviews.user_id "one task can have many reviews"
-    review_owner = db.relationship("Task", back_populates="user_review")
+    review_owner = db.relationship("User", back_populates="user_review")
 
     def to_dict(self):
         return {
