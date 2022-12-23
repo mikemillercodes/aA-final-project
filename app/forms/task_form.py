@@ -4,5 +4,57 @@ from wtforms.validators import DataRequired, Length, NumberRange, url
 
 # ------------------------------ TASK FORM ------------------------------ #
 
+# Create a new task by specifying title, description, price, and image URL fields.
 class TaskForm(FlaskForm):
-    
+    title = StringField(
+        "Title",
+        validators=[
+            DataRequired(),
+            Length(min=4, message="A title of at least 4 characters would be better!")
+        ]
+    )
+    description = StringField(
+        "Description",
+        validators=[
+            DataRequired("Make sure to provide a brief description!"),
+            Length(
+                min=10,
+                message="A description of at least 10 characters would be better!"
+            )
+        ]
+    )
+    price = IntegerField("Price", validators=[DataRequired(), NumberRange(0)])
+    task_img_url = StringField(
+        "Image URL",
+        validators=[
+            DataRequired(),
+            Length(
+                min=0,
+                max=1500,
+                message="The image URL must be less than 1500 characters"
+            ),
+            URL(message="Please enter a valid URL for your image")
+        ]
+    )
+    submit = SubmitField("Submit")
+
+class TaskUpdateForm(FlaskForm):
+    title = StringField(
+        "Title",
+        validators=[
+            DataRequired(),
+            Length(min=4, message="A title of at least 4 characters would be better!"),
+        ],
+    )
+    description = StringField(
+        "Description",
+        validators=[
+            DataRequired("Make sure to provide a brief description!"),
+            Length(
+                min=10,
+                message="A description of at least 10 characters would be better!",
+            ),
+        ],
+    )
+    price = IntegerField("Price", validators=[DataRequired(), NumberRange(0)])
+    submit = SubmitField("Submit")

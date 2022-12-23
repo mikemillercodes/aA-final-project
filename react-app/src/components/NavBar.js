@@ -19,7 +19,7 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
+            Sign Upp!
           </NavLink>
         </li>
         <li>
