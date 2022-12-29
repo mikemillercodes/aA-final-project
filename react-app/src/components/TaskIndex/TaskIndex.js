@@ -5,15 +5,13 @@ import { getTasks } from "../../store/all_tasks";
 
 const TaskIndex = () => {
     const dispatch = useDispatch();
-    const [tasks, setTasks] = useState([]);
     const user = useSelector((state) => state.session.user)
+    const tasks = useSelector((state) => Object.values(state.tasks))
+    console.log('tasks --->', tasks)
 
     useEffect(() => {
-        (async function fetchTasks() {
-        const all_tasks = await dispatch(getTasks())
-        setTasks(all_tasks)
-        }) ()
-    }, [dispatch, user])
+        dispatch(getTasks())
+    }, [dispatch])
 
     if (!tasks || tasks.length === 0) return null;
 
@@ -22,14 +20,13 @@ const TaskIndex = () => {
         <div className="all-tasks-index">
             <div className="single-task-cards">
                 {tasks.map((task)=> (
-
                 <img
                 alt="task-card-img"
                 className="task-img"
                 src={task.task_img_url}
                 >
-
                 </img>
+                <div></div>
                 ))}
             </div>
         </div>

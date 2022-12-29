@@ -52,6 +52,8 @@ const allTasksReducer = (state = initialState, action) => {
                 tasks[task.id] = task;
                 return tasks
             }, {});
+        default:
+            return state;
     }
 };
 
