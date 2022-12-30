@@ -1,0 +1,11 @@
+.nav-outer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: right;
+}
