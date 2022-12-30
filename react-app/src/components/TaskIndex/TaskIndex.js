@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getTasks } from "../../store/all_tasks";
+import './TaskIndex.css'
 
 const TaskIndex = () => {
     const dispatch = useDispatch();
@@ -18,17 +19,28 @@ const TaskIndex = () => {
     return (
         <>
         <div className="all-tasks-index">
-            <div className="single-task-cards">
                 {tasks.map((task)=> (
+                   
+            <div className="single-task-cards">
                 <img
                 alt="task-card-img"
                 className="task-img"
                 src={task.task_img_url}
                 >
                 </img>
-                <div></div>
-                ))}
+                <div className="task-title">
+                    {task.title}
+                </div>
+                <div className="task-price">
+                    <img 
+                    alt="task-price-icon"
+                    className="task-price-ticket-icon"
+                    src="https://www.svgrepo.com/show/124426/price-ticket.svg"
+                    ></img>
+                    Avg. Project: ${task.price - 5} - ${task.price + 5}
+                    </div>
             </div>
+                ))}
         </div>
         </>
     )
