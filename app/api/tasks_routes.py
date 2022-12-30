@@ -34,3 +34,21 @@ def post_task():
     A logged-in user can send a post request to create a new task.
     """
     form = TaskForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+    if form.validate_on_submit():
+        data = form.data
+
+        new_task = Task(
+            title=data["title"],
+            description=data["description"],
+            price=data["price"],
+            task_img_url=data["task_img_url"],
+            user_id=current_user.get_id()
+        )
+
+        db.session.add(new_task)
+        db.session.commit()
+
+        return new_task.to_dict()
+    print(validation_errors_to_error_messages(form.errors))
+    return { "errors": validation_errors_to_error_messages(form.errors)}, 403

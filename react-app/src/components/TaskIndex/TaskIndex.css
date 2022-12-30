@@ -1,0 +1,39 @@
+.task-price-ticket-icon {
+    height: 12px;
+    width: 12px;
+    margin-right: 5px;
+}
+
+.single-task-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgb(128, 128, 128, 0.3);
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.all-tasks-index {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: none;
+}
+
+.task-img {
+    margin-bottom: 10px;
+}
+
+.task-price {
+    margin-bottom: 10px;
+}
+
+.all-tasks-header {
+    margin-left: 90px;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
