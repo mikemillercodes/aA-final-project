@@ -37,6 +37,30 @@ export const getTasks = () => async dispatch => {
     };
 };
 
+export const postTask = payload => async dispatch => {
+    const { title, description, price, task_img_url } = payload;
+  
+    const response = await fetch('/api/tasks', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title,
+        description,
+        price,
+        task_img_url
+      })
+    });
+  
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(createTask(data));
+      return data;
+    }
+  
+    const data = await response.json();
+    return data;
+  };
+
 /* ------------------------- GETTERS ------------------------- */
 
 export const getAllTasks = state => Object.values(state.tasks);
@@ -52,8 +76,10 @@ const allTasksReducer = (state = initialState, action) => {
                 tasks[task.id] = task;
                 return tasks
             }, {});
+        case CREATE_TASK:
+            return { ...state, [action.task.id]: action.task};
         default:
-            return state;
+            return state
     }
 };
 

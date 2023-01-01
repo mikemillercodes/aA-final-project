@@ -9,6 +9,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import TaskIndex from './components/TaskIndex/TaskIndex';
+import SingleTask from './components/SingleTask/SingleTask';
+import TaskCreateForm from './components/TaskForm/CreateTask';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,6 +49,14 @@ function App() {
           <User />
         </ProtectedRoute>
       </Switch>
+      <Route path='/tasks/:id' exact={true}>
+        <SingleTask />
+      </Route>
+      <ProtectedRoute path='/tasks/new'>
+        <TaskCreateForm />
+      </ProtectedRoute>
+      
+    
     </BrowserRouter>
   );
 }

@@ -23,12 +23,14 @@ const TaskIndex = () => {
                 {tasks.map((task)=> (
                    
             <div className="single-task-cards">
+                <NavLink className="task-link" to={`/tasks/${task.id}`}>
                 <img
                 alt="task-card-img"
                 className="task-img"
                 src={task.task_img_url}
                 >
                 </img>
+                </NavLink>
                 <div className="task-title">
                     {task.title}
                 </div>
