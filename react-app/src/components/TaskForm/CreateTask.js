@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { postTask } from '../../store/all_products';
+import { postTask } from '../../store/all_tasks';
 import TaskForm from './TaskForm';
 
 const TaskCreateForm = () => {
@@ -21,8 +21,6 @@ const TaskCreateForm = () => {
       postTask({
         title,
         description,
-        detailed_description,
-        category_id,
         price,
         task_img_url
       })

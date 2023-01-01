@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import TaskIndex from './components/TaskIndex/TaskIndex';
 import SingleTask from './components/SingleTask/SingleTask';
 import TaskCreateForm from './components/TaskForm/CreateTask';
+import TaskUpdateForm from './components/TaskForm/UpdateTask';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -54,6 +55,9 @@ function App() {
       </Route>
       <ProtectedRoute path='/tasks/new'>
         <TaskCreateForm />
+      </ProtectedRoute>
+      <ProtectedRoute path='/tasks/:id/update' exact={true}>
+        <TaskUpdateForm />
       </ProtectedRoute>
       
     

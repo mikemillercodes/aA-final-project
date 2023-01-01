@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { getSingleTask } from "../../store/one_task";
 import { useEffect } from "react";
 
 const SingleTask = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const { id } = useParams();
     const singleTask = useSelector((state) => state.tasks[id]);
@@ -38,6 +39,13 @@ const SingleTask = () => {
             <div className="single-task-description">
                 {singleTask.description}
             </div>
+            <button 
+            className="single-task-update"
+            onClick={() => {
+                history.push(`/tasks/${singleTask.id}/update`)
+            }}
+            >Edit Your Task</button>
+
         </>
     )
 

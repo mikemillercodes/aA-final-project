@@ -5,7 +5,7 @@ import TaskForm from './TaskForm';
 import { useEffect } from 'react';
 import { getSingleTask, putSingleTask } from '../../store/one_task';
 
-const ProductUpdateForm = () => {
+const TaskUpdateForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -27,7 +27,7 @@ const ProductUpdateForm = () => {
     e.preventDefault();
 
     const updatedTask = await dispatch(
-      putSingleProduct({
+      putSingleTask({
         id: task.id,
         title,
         description,
@@ -55,8 +55,6 @@ const ProductUpdateForm = () => {
           setDescription={setDescription}
           price={price}
           setPrice={setPrice}
-          task_img_url={task_img_url}
-          set_task_img_url={set_task_img_url}
           errors={errors}
           setErrors={setErrors}
         />
@@ -65,4 +63,4 @@ const ProductUpdateForm = () => {
   );
 };
 
-export default ProductUpdateForm;
+export default TaskUpdateForm;
