@@ -91,13 +91,7 @@ def delete_task(id):
     """
     Query for a single task by id and delete the task if authorized.
     """
-    print("""
-    
-    a comma and alil message for us
 
-
-    
-    """)
     task = Task.query.get(id)
     db.session.delete(task)
     db.session.commit()

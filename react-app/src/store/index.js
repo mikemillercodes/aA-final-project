@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import allTasksReducer from "./all_tasks"
 import singleTaskReducer from './one_task';
+import reviewsReducer from './reviews';
 
 const rootReducer = combineReducers({
   session,
   tasks: allTasksReducer,
-  task: singleTaskReducer
+  task: singleTaskReducer,
+  reviews: reviewsReducer
 });
 
 

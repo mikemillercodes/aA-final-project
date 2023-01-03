@@ -12,7 +12,7 @@ reviews_routes = Blueprint("reviews", __name__)
 @reviews_routes.route("")
 def get_reviews():
     """
-    Queries for all reviews and return them in a list of task dictionaries.
+    Queries for all reviews and return them in a list of review dictionaries.
     """
 
     reviews = Review.query.all()
@@ -35,7 +35,7 @@ def post_review():
     """
     A logged-in user can send a post request to create a new review.
     """
-    form = TaskForm()
+    form = ReviewForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate_on_submit():
         data = form.data
@@ -59,14 +59,14 @@ def post_review():
 @login_required
 def update_review(id):
     """
-    Query for a single review by id and update the task if authorized.
+    Query for a single review by id and update the review if authorized.
     """
     review = Review.query.get(id)
     review_dict = review.to_dict()
 
     form = ReviewUpdateForm(
-        description=task_dict["description"],
-        price=task_dict["price"],
+        description=review_dict["description"],
+        stars=review_dict["stars"],
     )
 
     form["csrf_token"].data = request.cookies["csrf_token"]
@@ -74,31 +74,24 @@ def update_review(id):
         data = form.data
         print('data---->', data)
 
-        setattr(task, "title", data["title"])
-        setattr(task, "description", data["description"])
-        setattr(task, "price", data["price"])
+        setattr(review, "description", data["description"])
+        setattr(review, "stars", data["stars"])
 
         db.session.commit()
-        return task.to_dict()
+        return review.to_dict()
     print(validation_errors_to_error_messages(form.errors))
     return {"errors": validation_errors_to_error_messages(form.errors)}, 403
 
-## DELETE A SINGLE TASK
+## DELETE A SINGLE REVIEW
 @reviews_routes.route("/<int:id>", methods=["DELETE"])
 @login_required
-def delete_task(id):
+def delete_review(id):
     """
-    Query for a single task by id and delete the task if authorized.
+    Query for a single review by id and delete the review if authorized.
     """
-    print("""
-    
-    a comma and alil message for us
 
-
-    
-    """)
-    task = Task.query.get(id)
-    db.session.delete(task)
+    review = Review.query.get(id)
+    db.session.delete(review)
     db.session.commit()
     return { "message": "Successfully deleted", "status_code": 200}
 

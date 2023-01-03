@@ -12,6 +12,7 @@ import TaskIndex from './components/TaskIndex/TaskIndex';
 import SingleTask from './components/SingleTask/SingleTask';
 import TaskCreateForm from './components/TaskForm/CreateTask';
 import TaskUpdateForm from './components/TaskForm/UpdateTask';
+import ReviewIndex from './components/ReviewsIndex/ReviewsIndex';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -55,6 +56,7 @@ function App() {
       </Switch>
       <Route path='/tasks/:id' exact={true}>
         <SingleTask />
+        <ReviewIndex />
       </Route>
       <ProtectedRoute path='/tasks/new'>
         <TaskCreateForm />

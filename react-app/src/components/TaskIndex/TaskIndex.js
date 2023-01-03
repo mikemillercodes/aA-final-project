@@ -8,7 +8,6 @@ const TaskIndex = () => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user)
     const tasks = useSelector((state) => Object.values(state.tasks))
-    console.log('tasks --->', tasks)
 
     useEffect(() => {
         dispatch(getTasks())
