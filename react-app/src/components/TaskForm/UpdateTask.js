@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import TaskForm from './TaskForm';
 import { useEffect } from 'react';
@@ -10,6 +10,7 @@ const TaskUpdateForm = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [task, setTask] = useState(null);
+  const singleTask = useSelector((state) => state.task[id]);
 
   useEffect(() => {
     (async function fetchTask() {

@@ -7,7 +7,7 @@ const SingleTask = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const { id } = useParams();
-    const singleTask = useSelector((state) => state.tasks[id]);
+    const singleTask = useSelector((state) => state.task[id]);
     const user = useSelector((state) => state.session.user);
 
     useEffect(() => {

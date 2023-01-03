@@ -36,6 +36,9 @@ function App() {
         <TaskIndex />
       </Route>
     </Switch>
+      <ProtectedRoute path='/tasks/:id/update' exact={true}>
+        <TaskUpdateForm />
+      </ProtectedRoute>
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -56,11 +59,6 @@ function App() {
       <ProtectedRoute path='/tasks/new'>
         <TaskCreateForm />
       </ProtectedRoute>
-      <ProtectedRoute path='/tasks/:id/update' exact={true}>
-        <TaskUpdateForm />
-      </ProtectedRoute>
-      
-    
     </BrowserRouter>
   );
 }
