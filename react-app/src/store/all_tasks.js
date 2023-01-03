@@ -61,6 +61,23 @@ export const postTask = payload => async dispatch => {
     return data;
   };
 
+  export const deleteTask = taskId => async dispatch => {
+    console.log('task id ====> ', taskId)
+    taskId = +taskId
+    const response = await fetch(`/api/tasks/${taskId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if (response.ok) {
+        const deleteMessage = await response.json();
+        dispatch(removeTask(taskId));
+        return deleteMessage;
+    }
+  }
+
 /* ------------------------- GETTERS ------------------------- */
 
 export const getAllTasks = state => Object.values(state.tasks);
@@ -79,7 +96,11 @@ const allTasksReducer = (state = initialState, action) => {
         case CREATE_TASK:
             return { ...state, [action.task.id]: action.task};
         default:
-            return state
+            return state;
+        case DELETE_TASK:
+            const newState = { ...state };
+            delete newState[action.taskId];
+            return newState;
     }
 };
 

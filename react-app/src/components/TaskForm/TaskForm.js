@@ -11,6 +11,8 @@ const TaskForm = ({
     setDescription,
     price,
     setPrice,
+    task_img_url,
+    set_task_img_url,
     errors,
     setErrors
 }) => {
@@ -87,6 +89,19 @@ const TaskForm = ({
                       value={price}
                     />
                   </div>
+                  {formType === 'create' && (
+                    <div className='task-image'>
+                      <label htmlFor='task-image-url'>Task Image</label>
+                      <input 
+                      className='task-img-input'
+                      onChange={e => set_task_img_url(e.target.value)}
+                      placeholder='Give your task a picture!'
+                      required
+                      type='text'
+                      value={task_img_url}
+                      />
+                    </div>
+                  )}
                   <button
                     className='task-form-submit'
                     type='submit'

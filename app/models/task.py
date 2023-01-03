@@ -19,7 +19,7 @@ class Task(db.Model):
     task_owner = db.relationship("User", back_populates="user_task")
 
     # reviews.task_id <--> tasks.id "one task can have many reviews"
-    task_review = db.relationship("Review", back_populates="review_task")
+    task_review = db.relationship("Review", back_populates="review_task", cascade="all, delete")
 
     def to_dict(self):
         return {

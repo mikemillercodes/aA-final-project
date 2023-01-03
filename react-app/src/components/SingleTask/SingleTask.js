@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { getSingleTask } from "../../store/one_task";
+import { deleteTask, getTasks } from "../../store/all_tasks";
 import { useEffect } from "react";
 
 const SingleTask = () => {
@@ -39,12 +40,25 @@ const SingleTask = () => {
             <div className="single-task-description">
                 {singleTask.description}
             </div>
-            <button 
+            { user.id === singleTask.user_id && 
+            <button
             className="single-task-update"
             onClick={() => {
                 history.push(`/tasks/${singleTask.id}/update`)
             }}
             >Edit Your Task</button>
+        }
+        { user.id === singleTask.user_id && 
+        <button 
+        className="delete-task"
+        onClick={async (e) => {
+            e.preventDefault();
+            await dispatch(deleteTask(singleTask.id));
+            dispatch(getTasks());
+            history.push(`/`)
+        }}
+        >Delete Your Task</button>
+        }
 
         </>
     )

@@ -1,71 +1,70 @@
 from flask import Blueprint, jsonify, render_template, request, redirect
 from flask_login import login_required, current_user
-from app.models import db, Task
+from app.models import db, Review
 from .auth_routes import validation_errors_to_error_messages
-from app.forms import TaskUpdateForm, TaskForm
+from app.forms import ReviewUpdateForm, ReviewForm
 
-tasks_routes = Blueprint("tasks", __name__)
-# ------------------------------ TASK ROUTES ------------------------------#
+reviews_routes = Blueprint("reviews", __name__)
 
-# GET ALL TASKS:
-@tasks_routes.route("")
-def get_tasks():
+# ------------------------------ REVIEW ROUTES ------------------------------#
+
+# GET ALL REVIEWS:
+@reviews_routes.route("")
+def get_reviews():
     """
-    Queries for all tasks and return them in a list of task dictionaries.
-    """
-
-    tasks = Task.query.all()
-    return {"Tasks": [task.to_dict() for task in tasks]}
-
-# GET A SINGLE TASK:
-@tasks_routes.route("/<int:id>")
-def get_one_task(id):
-    """
-    Query for a single task by id and return it as a dictionary.
+    Queries for all reviews and return them in a list of task dictionaries.
     """
 
-    task = Task.query.get(id)
-    return task.to_dict()
+    reviews = Review.query.all()
+    return {"Reviews": [review.to_dict() for review in reviews]}
 
-# CREATE A NEW TASK:
-@tasks_routes.route("", methods=["POST"])
+# GET A SINGLE REVIEW:
+@reviews_routes.route("/<int:id>")
+def get_one_review(id):
+    """
+    Query for a single review by id and return it as a dictionary.
+    """
+
+    review = Review.query.get(id)
+    return review.to_dict()
+
+# CREATE A NEW REVIEW:
+@reviews_routes.route("", methods=["POST"])
 @login_required
-def post_task():
+def post_review():
     """
-    A logged-in user can send a post request to create a new task.
+    A logged-in user can send a post request to create a new review.
     """
     form = TaskForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate_on_submit():
         data = form.data
 
-        new_task = Task(
-            title=data["title"],
+        new_review = Review(
+          
             description=data["description"],
-            price=data["price"],
-            task_img_url=data["task_img_url"],
+            stars=data["stars"],
             user_id=current_user.get_id()
         )
 
-        db.session.add(new_task)
+        db.session.add(new_review)
         db.session.commit()
 
-        return new_task.to_dict()
+        return new_review.to_dict()
     print(validation_errors_to_error_messages(form.errors))
     return { "errors": validation_errors_to_error_messages(form.errors)}, 403
 
-# UPDATE A SINGLE TASK:
-@tasks_routes.route("/<int:id>/update", methods=["PUT"])
+# UPDATE A SINGLE REVIEW:
+@reviews_routes.route("/<int:id>/update", methods=["PUT"])
 @login_required
-def update_task(id):
+def update_review(id):
     """
-    Query for a single task by id and update the task if authorized.
+    Query for a single review by id and update the task if authorized.
     """
-    task = Task.query.get(id)
-    task_dict = task.to_dict()
+    review = Review.query.get(id)
+    review_dict = review.to_dict()
 
-    form = TaskUpdateForm(
-        title=task_dict["title"],
+    form = ReviewUpdateForm(
         description=task_dict["description"],
         price=task_dict["price"],
     )
@@ -85,7 +84,7 @@ def update_task(id):
     return {"errors": validation_errors_to_error_messages(form.errors)}, 403
 
 ## DELETE A SINGLE TASK
-@tasks_routes.route("/<int:id>", methods=["DELETE"])
+@reviews_routes.route("/<int:id>", methods=["DELETE"])
 @login_required
 def delete_task(id):
     """
