@@ -37,6 +37,47 @@ export const getTasks = () => async dispatch => {
     };
 };
 
+export const postTask = payload => async dispatch => {
+    const { title, description, price, task_img_url } = payload;
+  
+    const response = await fetch('/api/tasks', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title,
+        description,
+        price,
+        task_img_url
+      })
+    });
+  
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(createTask(data));
+      return data;
+    }
+  
+    const data = await response.json();
+    return data;
+  };
+
+  export const deleteTask = taskId => async dispatch => {
+    console.log('task id ====> ', taskId)
+    taskId = +taskId
+    const response = await fetch(`/api/tasks/${taskId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if (response.ok) {
+        const deleteMessage = await response.json();
+        dispatch(removeTask(taskId));
+        return deleteMessage;
+    }
+  }
+
 /* ------------------------- GETTERS ------------------------- */
 
 export const getAllTasks = state => Object.values(state.tasks);
@@ -52,8 +93,14 @@ const allTasksReducer = (state = initialState, action) => {
                 tasks[task.id] = task;
                 return tasks
             }, {});
+        case CREATE_TASK:
+            return { ...state, [action.task.id]: action.task};
         default:
             return state;
+        case DELETE_TASK:
+            const newState = { ...state };
+            delete newState[action.taskId];
+            return newState;
     }
 };
 

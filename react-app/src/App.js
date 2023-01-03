@@ -9,6 +9,10 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import TaskIndex from './components/TaskIndex/TaskIndex';
+import SingleTask from './components/SingleTask/SingleTask';
+import TaskCreateForm from './components/TaskForm/CreateTask';
+import TaskUpdateForm from './components/TaskForm/UpdateTask';
+import ReviewIndex from './components/ReviewsIndex/ReviewsIndex';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -33,6 +37,9 @@ function App() {
         <TaskIndex />
       </Route>
     </Switch>
+      <ProtectedRoute path='/tasks/:id/update' exact={true}>
+        <TaskUpdateForm />
+      </ProtectedRoute>
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -47,6 +54,13 @@ function App() {
           <User />
         </ProtectedRoute>
       </Switch>
+      <Route path='/tasks/:id' exact={true}>
+        <SingleTask />
+        <ReviewIndex />
+      </Route>
+      <ProtectedRoute path='/tasks/new'>
+        <TaskCreateForm />
+      </ProtectedRoute>
     </BrowserRouter>
   );
 }

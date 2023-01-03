@@ -1,8 +1,10 @@
 .nav-outer {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin-top: 15px;
     margin-bottom: 15px;
+    width: 100%;
 }
 
 .nav-right {

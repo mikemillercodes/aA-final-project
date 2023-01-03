@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SelectField, IntegerField, SubmitField
-from wtforms.validators import DataRequired, Length, NumberRange, url
+from wtforms.validators import DataRequired, Length, NumberRange, URL
 
 # ------------------------------ TASK FORM ------------------------------ #
 

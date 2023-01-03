@@ -5,73 +5,73 @@ def seed_reviews():
     review1 = Review(
         task_id=1,
         user_id=1,
-        description="Changed my life",
+        description="Changed my life1",
         stars=5
     )
     review2 = Review(
         task_id=2,
         user_id=2,
-        description="Changed my life",
+        description="Changed my life2",
         stars=3
     )
     review3 = Review(
         task_id=3,
         user_id=3,
-        description="Changed my life",
+        description="Changed my life3",
         stars=4
     )
     review4 = Review(
         task_id=4,
         user_id=1,
-        description="Changed my life",
+        description="Changed my life4",
         stars=2
     )
     review5 = Review(
         task_id=5,
         user_id=2,
-        description="Changed my life",
+        description="Changed my life5",
         stars=3
     )
     review6 = Review(
         task_id=3,
         user_id=1,
-        description="Changed my life",
+        description="Changed my life6",
         stars=5
     )
     review7 = Review(
         task_id=1,
         user_id=1,
-        description="Changed my life",
+        description="Changed my life7",
         stars=4
     )
     review8 = Review(
         task_id=2,
         user_id=2,
-        description="Changed my life",
+        description="Changed my life8",
         stars=5
     )
     review9 = Review(
         task_id=3,
         user_id=3,
-        description="Changed my life",
+        description="Changed my life9",
         stars=4
     )
     review10 = Review(
         task_id=4,
         user_id=1,
-        description="Changed my life",
+        description="Changed my life10",
         stars=3
     )
     review11 = Review(
         task_id=5,
         user_id=2,
-        description="Changed my life",
+        description="Changed my life11",
         stars=2
     )
     review12 = Review(
         task_id=6,
         user_id=3,
-        description="Changed my life",
+        description="Changed my life12",
         stars=1
     )
 
