@@ -18,7 +18,7 @@ const ReviewForm = ({
     useEffect(() => {
         formType === 'update' ? review && setIsLoaded(true) : setIsLoaded(true);
         formType === 'update' && setDescription(review?.description);
-        formType === 'update' && setSrice(review?.stars)
+        formType === 'update' && setStars(review?.stars)
     }, [
       review?.description,
       review?.stars,
@@ -59,7 +59,7 @@ const ReviewForm = ({
                     />
                   </div>
                   <div className='stars-container'>
-                    <label htmlFor='stars-input'>stars</label>
+                    <label htmlFor='stars-input'>Stars</label>
                     <input
                       className='stars-input'
                       min={0}

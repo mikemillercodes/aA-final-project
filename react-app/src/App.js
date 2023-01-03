@@ -13,6 +13,7 @@ import SingleTask from './components/SingleTask/SingleTask';
 import TaskCreateForm from './components/TaskForm/CreateTask';
 import TaskUpdateForm from './components/TaskForm/UpdateTask';
 import ReviewIndex from './components/ReviewsIndex/ReviewsIndex';
+import ReviewUpdateForm from './components/ReviewsIndex/UpdateReview';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -39,6 +40,9 @@ function App() {
     </Switch>
       <ProtectedRoute path='/tasks/:id/update' exact={true}>
         <TaskUpdateForm />
+      </ProtectedRoute>
+      <ProtectedRoute path='/reviews/:id/update' exact={true}>
+        <ReviewUpdateForm />
       </ProtectedRoute>
       <Switch>
         <Route path='/login' exact={true}>

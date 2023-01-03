@@ -21,7 +21,7 @@ export const createReview = review => {
 
 export const updateReview = updatedReview => {
     return {
-        UPDATE_REVIEW,
+        type: UPDATE_REVIEW,
         updatedReview
     }
 }

@@ -10,7 +10,8 @@ const ReviewUpdateForm = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [review, setReview] = useState(null);
-  const singleReview = useSelector((state) => state.review[id]);
+  // const task = useSelector((state) => state.task[id])
+  const [task, setTask] = useState(null);
 
   useEffect(() => {
     (async function fetchReview() {
@@ -28,7 +29,7 @@ const ReviewUpdateForm = () => {
 
     const updatedReview = await dispatch(
       putSingleReview({
-        id: review.id,
+        id: id,
         description,
         stars
       })
