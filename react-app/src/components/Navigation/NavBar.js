@@ -13,7 +13,11 @@ const NavBar = () => {
     <nav className='nav-outer'>
         <div className='nav-left'>
           <NavLink to='/' exact={true} activeClassName='active'>
-            Home
+            <img
+            src='/images/taskly-logo.png'
+            className='taskly-logo'
+            alt='header-logo'
+            ></img>
           </NavLink>
         </div>
         <div className='nav-right'>

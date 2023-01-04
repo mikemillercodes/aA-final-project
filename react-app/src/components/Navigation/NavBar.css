@@ -11,3 +11,7 @@
     display: flex;
     align-items: right;
 }
+
+.taskly-logo {
+    height: 35px;
+}
