@@ -14,6 +14,14 @@ const ReviewIndex = () => {
     let taskReviews;
     if (task && reviews.length) taskReviews = reviews.filter(review => review.task_id === task.id);
 
+    console.log('task reviews ====>', taskReviews)
+    const noUserReview = () => {
+        for (let i = 0; i < taskReviews.length; i++) {
+            let review = taskReviews[i];
+            if (review.user_id === user.id) return false
+        }
+        return true
+    }
     useEffect(() => {
         dispatch(getReviews())
     }, [dispatch]);
@@ -23,6 +31,16 @@ const ReviewIndex = () => {
     return (
         <>
             <div className="all-reviews-header">What People Are Saying</div>
+                {user && noUserReview() && (
+                    <>
+                    <button
+                    className="review-this-task"
+                    onClick={() => {
+                        history.push(`/tasks/${task.id}/reviews/new`)
+                    }}
+                    >Leave a Review</button>
+                    </>
+                )}
             <div className="all-reviews-index">
                 {taskReviews.map((review) => (
                     <div className="single-review-cards">
@@ -32,7 +50,6 @@ const ReviewIndex = () => {
                         <div className="review-stars">
                             {review.stars}
                         </div>
-
                         {user && user.id === review.user_id && (
                             <>
                                 <button

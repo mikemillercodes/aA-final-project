@@ -22,15 +22,8 @@ const NavBar = () => {
         </NavLink>
         {!user &&
           <>
-          {/* <NavLink to='/signup-login' exact={true} activeClassName='active'>
-           Sign Up / Login
-          </NavLink> */}
-          <NavLink to='/login' exact={true} activeClassName='active'>
-            Login
-          </NavLink>
-     
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
+          <NavLink to='/signup-login' exact={true} activeClassName='active'>
+           Sign up / Login
           </NavLink>
           </>
         }

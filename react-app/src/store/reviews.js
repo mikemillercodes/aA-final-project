@@ -63,14 +63,15 @@ export const putSingleReview = review => async dispatch => {
 }
 
 export const postReview = payload => async dispatch => {
-    const { description, stars } = payload;
-  
+    const { description, stars, taskId } = payload;
+    console.log('task id =====>', taskId)
     const response = await fetch('/api/reviews', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         description,
-        stars
+        stars,
+        taskId
       })
     });
   

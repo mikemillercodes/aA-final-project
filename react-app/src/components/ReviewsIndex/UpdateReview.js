@@ -8,10 +8,10 @@ import { getReviews, putSingleReview } from '../../store/reviews';
 const ReviewUpdateForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { reviewId } = useParams();
   const [review, setReview] = useState(null);
-  // const task = useSelector((state) => state.task[id])
-  const [task, setTask] = useState(null);
+  const taskId = useSelector((state) => state.task.id)
+  console.log('task id ====>', taskId)
 
   useEffect(() => {
     (async function fetchReview() {
@@ -29,14 +29,14 @@ const ReviewUpdateForm = () => {
 
     const updatedReview = await dispatch(
       putSingleReview({
-        id: id,
+        reviewId: reviewId,
         description,
         stars
       })
     );
 
     if (updatedReview) {
-      updatedReview.errors ? setErrors(updatedReview.errors) : history.push(`/tasks/${task.id}`);
+      updatedReview.errors ? setErrors(updatedReview.errors) : history.push(`/tasks/${taskId}`);
     }
   };
 
