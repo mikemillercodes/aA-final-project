@@ -39,7 +39,6 @@ export const putSingleTask = task => async dispatch => {
 
   if (response.ok) {
     const data = await response.json();
-    console.log('data ===>', data)
     dispatch(updateSingleTask(data));
     return data;
   }
@@ -57,12 +56,10 @@ const singleTaskReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_SINGLE_TASK: 
       return {
-        ...state,
         [action.task.id]: { ...action.task }
       };
     
     case UPDATE_SINGLE_TASK: 
-      console.log('updated task -->', action.updatedTask)
       return {
         ...state,
         [action.updatedTask.id]: { ...action.updatedTask }

@@ -1,0 +1,43 @@
+.top {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url("https://www.taskrabbit.com/v3/assets/_/_/_/_/_/_/_/apps/web/app/assets/images/web/solo_assembly-b3544f2d7fd33a53f18d56f238571aad.jpg");
+}
+
+#signup-button {
+    margin-top: 350px;
+    width: 320px;
+    height: 40px;
+    border-radius: 25px;
+    color: white;
+    background-color: darkgreen;
+    cursor: pointer;
+}
+
+#login-button {
+    margin-top: 15px;
+    width: 320px;
+    height: 40px;
+    border-radius: 25px;
+    color: darkgreen;
+    background-color: white;
+    border: 2px solid darkgreen;
+    cursor: pointer;
+    margin-bottom: 400px;
+}
+
+/* .top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 12px;
+    width: 600px;
+    height: 400px;
+    margin-left: 350px;
+} */

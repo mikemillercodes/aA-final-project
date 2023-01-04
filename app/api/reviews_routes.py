@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, render_template, request, redirect
+from flask import Blueprint, jsonify, render_template, request, redirect, json
 from flask_login import login_required, current_user
 from app.models import db, Review
 from .auth_routes import validation_errors_to_error_messages
@@ -35,21 +35,23 @@ def post_review():
     """
     A logged-in user can send a post request to create a new review.
     """
+    body = json.loads(request.data.decode('UTF-8'))
+    print('what the body looks like====>', body)
     form = ReviewForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate_on_submit():
         data = form.data
-
+        print('data=====>',data)
         new_review = Review(
           
             description=data["description"],
             stars=data["stars"],
+            task_id=body["taskId"],
             user_id=current_user.get_id()
         )
 
         db.session.add(new_review)
         db.session.commit()
-
         return new_review.to_dict()
     print(validation_errors_to_error_messages(form.errors))
     return { "errors": validation_errors_to_error_messages(form.errors)}, 403

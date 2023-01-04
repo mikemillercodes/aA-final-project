@@ -9,6 +9,7 @@ const SingleTask = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
     const singleTask = useSelector((state) => state.task[id]);
+    console.log('single task ===>', singleTask)
     const user = useSelector((state) => state.session.user);
 
     useEffect(() => {
@@ -40,25 +41,25 @@ const SingleTask = () => {
             <div className="single-task-description">
                 {singleTask.description}
             </div>
-            { user.id === singleTask.user_id && 
-            <button
-            className="single-task-update"
-            onClick={() => {
-                history.push(`/tasks/${singleTask.id}/update`)
-            }}
-            >Edit Your Task</button>
-        }
-        { user.id === singleTask.user_id && 
-        <button 
-        className="delete-task"
-        onClick={async (e) => {
-            e.preventDefault();
-            await dispatch(deleteTask(singleTask.id));
-            dispatch(getTasks());
-            history.push(`/`)
-        }}
-        >Delete Your Task</button>
-        }
+            {user && user.id === singleTask.user_id &&
+                <button
+                    className="single-task-update"
+                    onClick={() => {
+                        history.push(`/tasks/${singleTask.id}/update`)
+                    }}
+                >Edit Your Task</button>
+            }
+            {user && user.id === singleTask.user_id &&
+                <button
+                    className="delete-task"
+                    onClick={async (e) => {
+                        e.preventDefault();
+                        await dispatch(deleteTask(singleTask.id));
+                        dispatch(getTasks());
+                        history.push(`/`)
+                    }}
+                >Delete Your Task</button>
+            }
 
         </>
     )
