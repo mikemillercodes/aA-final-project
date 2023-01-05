@@ -1,0 +1,28 @@
+.user-input, .email-input, .password-input, .repeat-password-input {
+    border-radius: 10px;
+    width: 225px;
+    height: 25px;
+    display: block;
+}
+
+.signup-outer {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    justify-content: space-between;
+}
+
+.signup-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
