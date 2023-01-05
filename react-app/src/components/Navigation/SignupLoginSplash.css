@@ -18,6 +18,11 @@
     cursor: pointer;
 }
 
+#signup-button:hover {
+    background-color: white;
+    color: darkgreen;
+}
+
 #login-button {
     margin-top: 15px;
     width: 320px;
@@ -30,14 +35,7 @@
     margin-bottom: 400px;
 }
 
-/* .top {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border-radius: 12px;
-    width: 600px;
-    height: 400px;
-    margin-left: 350px;
-} */
+#login-button:hover {
+    background-color: darkgreen;
+    color: white;
+}

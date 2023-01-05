@@ -13,6 +13,11 @@
     margin-right: 10px;
     margin-left: 10px;
     margin-bottom: 20px;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.2);
+}
+
+.single-task-cards:hover {
+    background-color: rgb(211, 211, 211, 0.3);
 }
 
 .all-tasks-index {
@@ -26,6 +31,8 @@
 
 .task-img {
     margin-bottom: 10px;
+    height: 200px;
+    width: 200px;
 }
 
 .task-price {

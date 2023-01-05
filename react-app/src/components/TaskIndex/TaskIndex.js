@@ -20,7 +20,7 @@ const TaskIndex = () => {
         <div className="all-tasks-header">Popular Projects in Your City</div>
         <div className="all-tasks-index">
                 {tasks.map((task)=> (
-                   
+         <div className="task-cards-outer">
             <div className="single-task-cards">
                 <NavLink className="task-link" to={`/tasks/${task.id}`}>
                 <img
@@ -42,6 +42,7 @@ const TaskIndex = () => {
                     Avg. Project: ${task.price - 5} - ${task.price + 5}
                     </div>
             </div>
+         </div>          
                 ))}
         </div>
         </>

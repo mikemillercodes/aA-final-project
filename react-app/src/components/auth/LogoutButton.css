@@ -1,0 +1,15 @@
+#logout-btn {
+    height: 35px;
+    width: 100px;
+    border-radius: 15px;
+    border: 2px solid darkgreen;
+    background-color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    color: darkgreen;
+}
+
+#logout-btn:hover {
+    background-color: darkgreen;
+    color: white;
+}

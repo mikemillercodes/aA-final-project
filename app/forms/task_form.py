@@ -1,18 +1,19 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SelectField, IntegerField, SubmitField
-from wtforms.validators import DataRequired, Length, NumberRange, URL
+from wtforms.validators import DataRequired, Length, NumberRange, URL, ValidationError
 
 # ------------------------------ TASK FORM ------------------------------ #
 
 # Create a new task by specifying title, description, price, and image URL fields.
 class TaskForm(FlaskForm):
+    def validate_title(form, field):
+        if len(field.data) < 4:
+            raise ValidationError("Title must be 4 characters or longer")
+        if len(field.data) > 49:
+            raise ValidationError("Title must be less than 50 characters")
     title = StringField(
-        "Title",
-        validators=[
-            DataRequired(),
-            Length(min=4, message="A title of at least 4 characters would be better!")
-        ]
-    )
+        "Title", [DataRequired()])
+    
     description = StringField(
         "Description",
         validators=[
@@ -23,7 +24,7 @@ class TaskForm(FlaskForm):
             )
         ]
     )
-    price = IntegerField("Price", validators=[DataRequired(), NumberRange(0)])
+    price = IntegerField("Price", validators=[DataRequired(), NumberRange(min=6, max=None, message="Your hourly task rate must be $6 or more")])
     task_img_url = StringField(
         "Image URL",
         validators=[
@@ -56,5 +57,5 @@ class TaskUpdateForm(FlaskForm):
             ),
         ],
     )
-    price = IntegerField("Price", validators=[DataRequired(), NumberRange(0)])
+    price = IntegerField("Price", validators=[DataRequired(), NumberRange(min=6, max=None, message="Your hourly task rate must be $6 or more")])
     submit = SubmitField("Submit")

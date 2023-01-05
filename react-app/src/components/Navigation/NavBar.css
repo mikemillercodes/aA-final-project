@@ -14,4 +14,37 @@
 
 .taskly-logo {
     height: 35px;
+    margin-left: 10px;
+}
+
+.create-task-btn {
+    height: 35px;
+    width: 100px;
+    border-radius: 15px;
+    border: 2px solid darkgreen;
+    background-color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    color: darkgreen;
+}
+
+.create-task-btn:hover {
+    background-color: darkgreen;
+    color: white;
+}
+
+.signup-login-btn {
+    height: 35px;
+    width: 110px;
+    border-radius: 15px;
+    border: 2px solid darkgreen;
+    background-color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    color: darkgreen;
+}
+
+.signup-login-btn:hover {
+    background-color: darkgreen;
+    color: white;
 }

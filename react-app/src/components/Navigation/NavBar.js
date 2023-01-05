@@ -22,12 +22,24 @@ const NavBar = () => {
         </div>
         <div className='nav-right'>
         <NavLink to='/tasks/new' exact={true} activeClassName='active'>
+          <button 
+          type="button"
+          className='create-task-btn'
+          >
+
           Create a Task
+          </button>
         </NavLink>
         {!user &&
           <>
           <NavLink to='/signup-login' exact={true} activeClassName='active'>
+            <button
+            type="button"
+            className="signup-login-btn"
+            >
+
            Sign up / Login
+            </button>
           </NavLink>
           </>
         }
