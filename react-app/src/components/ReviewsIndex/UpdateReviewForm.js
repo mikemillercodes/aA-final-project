@@ -70,7 +70,7 @@ const UpdateReviewForm = ({
                       className='stars-input'
                       min={0}
                       onChange={e => setStars(e.target.value)}
-                      placeholder="Make sure to accurately represent your Tasker!"
+                      placeholder="Accurately represent your Tasker!"
                       required
                       type='number'
                       value={stars}

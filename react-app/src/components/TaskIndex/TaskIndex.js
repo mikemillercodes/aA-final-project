@@ -16,36 +16,37 @@ const TaskIndex = () => {
     if (!tasks || tasks.length === 0) return null;
 
     return (
-        <>
-        <div className="all-tasks-header">Popular Projects in Your City</div>
-        <div className="all-tasks-index">
-                {tasks.map((task)=> (
-         <div className="task-cards-outer">
-            <div className="single-task-cards">
-                <NavLink className="task-link" to={`/tasks/${task.id}`}>
-                <img
-                alt="task-card-img"
-                className="task-img"
-                src={task.task_img_url}
-                >
-                </img>
-                </NavLink>
-                <div className="task-title">
-                    {task.title}
-                </div>
-                <div className="task-price">
-                    <img 
-                    alt="task-price-icon"
-                    className="task-price-ticket-icon"
-                    src="https://www.svgrepo.com/show/124426/price-ticket.svg"
-                    ></img>
-                    Avg. Project: ${task.price - 5} - ${task.price + 5}
+        <div className="outer">
+            <div className="all-tasks-header">Popular Projects in Your City</div>
+            <div className="all-tasks-index">
+                {tasks.map((task) => (
+                    <div className="task-cards-outer">
+                        <div className="single-task-cards">
+                            <NavLink className="task-link" to={`/tasks/${task.id}`}>
+                                <img
+                                    alt="task-card-img"
+                                    className="task-img"
+                                    src={task.task_img_url}
+                                    onError={e => { e.currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Frog_on_palm_frond.jpg/1200px-Frog_on_palm_frond.jpg"}}
+                                >
+                                </img>
+                            </NavLink>
+                            <div className="task-title">
+                                {task.title}
+                            </div>
+                            <div className="task-price">
+                                <img
+                                    alt="task-price-icon"
+                                    className="task-price-ticket-icon"
+                                    src="https://www.svgrepo.com/show/124426/price-ticket.svg"
+                                ></img>
+                                Avg. Project: ${task.price - 5}&mdash;${task.price + 5}
+                            </div>
+                        </div>
                     </div>
-            </div>
-         </div>          
                 ))}
+            </div>
         </div>
-        </>
     )
 
 }

@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { getSingleTask } from "../../store/one_task";
 import { deleteTask, getTasks } from "../../store/all_tasks";
 import { useEffect } from "react";
+import './SingleTask.css'
 
 const SingleTask = () => {
     const history = useHistory();
@@ -23,8 +24,9 @@ const SingleTask = () => {
             <div className="single-task-detail">
                 <img
                     alt="task-card-img"
-                    className="task-img"
+                    className="single-task-image"
                     src={singleTask.task_img_url}
+                    onError={e => { e.currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Frog_on_palm_frond.jpg/1200px-Frog_on_palm_frond.jpg"}}
                 >
                 </img>
             </div>
@@ -37,7 +39,7 @@ const SingleTask = () => {
                     className="task-price-ticket-icon"
                     src="https://www.svgrepo.com/show/124426/price-ticket.svg"
                 ></img>
-                Avg. Project: ${singleTask.price - 5} - ${singleTask.price + 5}        </div>
+                Avg. Project: ${singleTask.price - 5}&mdash;${singleTask.price + 5}        </div>
             <div className="single-task-description">
                 {singleTask.description}
             </div>

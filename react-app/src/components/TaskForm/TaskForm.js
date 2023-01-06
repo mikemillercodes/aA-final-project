@@ -97,7 +97,7 @@ const TaskForm = ({
               </div>
               {formType === 'create' && (
                 <div className='task-image'>
-                  <label htmlFor='task-image-url'>Task Image</label>
+                  <label htmlFor='task-image-url'>Task Image URL</label>
                   <input
                     className='task-img-input'
                     onChange={e => set_task_img_url(e.target.value)}

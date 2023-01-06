@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import './ReviewForm.css'
 
 const ReviewForm = ({
     review,
@@ -45,11 +46,11 @@ const ReviewForm = ({
                     ))}
                   </ul>
                 )}
-                <div className='inputs-container'>
-                  <div className='description-container'>
-                    <label htmlFor='desctiption-input'>Description</label>
+                <div className='inputs-container-review'>
+                  <div className='description-container-review'>
+                    <label className='description-input-review-label' htmlFor='description-input-review'>Description</label>
                     <input
-                      className='description-input'
+                      className='description-input-review'
                       onChange={e => setDescription(e.target.value)}
                       name='description-input'
                       placeholder='Describe the review.'
@@ -58,13 +59,13 @@ const ReviewForm = ({
                       value={description}
                     />
                   </div>
-                  <div className='stars-container'>
-                    <label htmlFor='stars-input'>Stars</label>
+                  <div className='stars-container-review'>
+                    <label className='stars-input-review-label' htmlFor='stars-input'>Stars</label>
                     <input
-                      className='stars-input'
+                      className='stars-input-review'
                       min={0}
                       onChange={e => setStars(e.target.value)}
-                      placeholder="Make sure to accurately represent your Tasker!"
+                      placeholder="Accurately represent your Tasker!"
                       required
                       type='number'
                       value={stars}
