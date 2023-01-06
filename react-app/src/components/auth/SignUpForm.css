@@ -1,15 +1,21 @@
 .user-input, .email-input, .password-input, .repeat-password-input {
     border-radius: 10px;
     width: 225px;
-    height: 25px;
+    height: 30px;
     display: block;
+    padding-left: 20px;
 }
 
 .signup-outer {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 420px;
     justify-content: space-between;
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
 }
 
 .signup-labels {
@@ -17,6 +23,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: white;
+    margin-top: 10px;
 }
 
 .signup-form {
@@ -25,4 +32,33 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/83/500/871/waterfall-high-resolution-desktop-wallpaper-preview.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#signup-btn {
+    margin-bottom: 25px;
+    margin-top: 10px;
+    height: 45px;
+    width: 420px;
+    border-radius: 15px;
+    border: 2px solid darkgreen;
+    background-color: darkgreen;
+    cursor: pointer;
+    margin-right: 10px;
+    color: white;
+    font-size: 15px;
+    transition: background-color 0.25s ease;
+}
+
+#signup-btn:hover {
+    background-color: white;
+    color: darkgreen;
+}
+
+.errors {
+    font-size: 15px;
+    color: red;
+    background-color: white;
 }

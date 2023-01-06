@@ -7,6 +7,7 @@
     cursor: pointer;
     margin-right: 10px;
     color: darkgreen;
+    transition: background-color 0.25s ease;
 }
 
 #logout-btn:hover {

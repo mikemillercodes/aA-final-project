@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import ReviewForm from './ReviewForm';
+import UpdateReviewForm from './UpdateReviewForm';
 import { useEffect } from 'react';
 import { getReviews, putSingleReview } from '../../store/reviews';
 
@@ -12,7 +12,6 @@ const ReviewUpdateForm = () => {
   const [review, setReview] = useState(null);
   const task = useSelector((state) => state.task)
   const taskId = Object.values(task)[0].id
-  console.log('task Id ====>', taskId)
 
   useEffect(() => {
     (async function fetchReview() {
@@ -46,7 +45,7 @@ const ReviewUpdateForm = () => {
   return (
     <>
       {review && (
-        <ReviewForm
+        <UpdateReviewForm
           review={review}
           formType={'update'}
           handleSubmit={handleSubmit}

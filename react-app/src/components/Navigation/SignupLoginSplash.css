@@ -16,6 +16,7 @@
     color: white;
     background-color: darkgreen;
     cursor: pointer;
+    transition: background-color 0.5s ease;
 }
 
 #signup-button:hover {
@@ -33,6 +34,7 @@
     border: 2px solid darkgreen;
     cursor: pointer;
     margin-bottom: 400px;
+    transition: background-color 0.5s ease;
 }
 
 #login-button:hover {

@@ -1,0 +1,63 @@
+.title-input, .description-input, .price-input, .task-img-input {
+    border-radius: 10px;
+    width: 225px;
+    height: 30px;
+    display: block;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.task-form-submit {
+    margin-bottom: 15px;
+    margin-top: 10px;
+    height: 45px;
+    width: 380px;
+    border-radius: 15px;
+    border: 2px solid darkgreen;
+    background-color: darkgreen;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+    transition: background-color 0.25s ease;
+}
+
+.task-form-submit:hover {
+    background-color: white;
+    color: darkgreen;
+}
+
+.task-form-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hammertime {
+    margin-top: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.task-form {
+    position: absolute;
+    background-color: white;
+    height: fit-content;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+}
+
+.title-container, .description-container, .price-container, .task-image {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+

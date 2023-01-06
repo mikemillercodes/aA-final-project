@@ -13,29 +13,57 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+  // const onSignUp = async (e) => {
+  //   e.preventDefault();
+  //   if (password === repeatPassword) {
+  //     const data = await dispatch(signUp(username, email, password));
+  //     if (data) {
+  //       setErrors(data)
+  //     }
+  //   }
+  // };
+
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+    let errors = [];
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+      errors.push("That's not a valid email address. Told you we'd check.");
+    if (username.length < 5)
+      errors.push(
+        "Let's make that username a bit longer. 5 characters should do."
+      );
+    if (password !== repeatPassword)
+      errors.push('Passwords need to match, silly goose!');
+    if (errors.length > 0) {
+      setErrors(errors);
+    } else {
+      errors = [];
+      const data = await dispatch(
+        signUp(username, email, password)
+      );
       if (data) {
-        setErrors(data)
+        if (errors) setErrors(data);
       }
     }
   };
 
   const updateUsername = (e) => {
+    setErrors([])
     setUsername(e.target.value);
   };
 
   const updateEmail = (e) => {
+    setErrors([])
     setEmail(e.target.value);
   };
 
   const updatePassword = (e) => {
+    setErrors([])
     setPassword(e.target.value);
   };
 
   const updateRepeatPassword = (e) => {
+    setErrors([])
     setRepeatPassword(e.target.value);
   };
 
@@ -45,7 +73,7 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSignUp} className='signup-form'>
-      <div>
+      <div className='errors'>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
@@ -60,6 +88,7 @@ const SignUpForm = () => {
             placeholder='Please provide a user name.'
             onChange={updateUsername}
             value={username}
+            required={true}
           ></input>
         </div>
         <div className='signup-labels'>
@@ -71,6 +100,7 @@ const SignUpForm = () => {
             placeholder='Enter your email address.'
             onChange={updateEmail}
             value={email}
+            required={true}
           ></input>
         </div>
         <div className='signup-labels'>
@@ -96,7 +126,7 @@ const SignUpForm = () => {
             required={true}
           ></input>
         </div>
-      <button type='submit'>Sign Up</button>
+      <button id='signup-btn' type='submit'>Sign Up</button>
       </div>
     </form>
   );
