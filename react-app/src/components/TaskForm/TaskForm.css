@@ -60,4 +60,8 @@
     width: 100%;
 }
 
+.task-form-header-errors {
+    color: red;
+}
+
 

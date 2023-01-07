@@ -44,13 +44,11 @@
     color: darkgreen;
 }
 
-.errors {
+.errors-login {
     font-size: 12px;
     color: red;
     background-color: white;
     position: absolute;
-    top: 370px;
-    left: 425px;
 }
 
 .email-input-outer, .password-input-outer {

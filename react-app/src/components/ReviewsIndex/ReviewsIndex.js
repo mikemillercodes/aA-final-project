@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { getReviews, deleteReview } from "../../store/reviews";
+import './ReviewsIndex.css';
 
 const ReviewIndex = () => {
     const history = useHistory();
@@ -10,17 +11,17 @@ const ReviewIndex = () => {
     const user = useSelector((state) => state.session.user);
     const reviews = useSelector((state) => Object.values(state.reviews));
     const task = useSelector((state) => state.task[id]);
-    console.log('task ==>', task)
     let taskReviews;
     if (task && reviews.length) taskReviews = reviews.filter(review => review.task_id === task.id);
+    console.log('task ==>', task)
 
-    console.log('task reviews ====>', taskReviews)
     const noUserReview = () => {
         for (let i = 0; i < taskReviews.length; i++) {
             let review = taskReviews[i];
-            if (review.user_id === user.id) return false
+            if (review.user_id === user.id) return false;
         }
-        return true
+        if (user.id === task.user_id) return false;
+        else return true
     }
     useEffect(() => {
         dispatch(getReviews())
@@ -29,8 +30,14 @@ const ReviewIndex = () => {
     if (!reviews || reviews.length === 0 || !task) return null;
 
     return (
-        <>
-            <div className="all-reviews-header">What People Are Saying</div>
+        <div className="review-index-outer">
+            <div className="all-reviews-header">
+                <img
+                className="review-dialogue-icon"
+                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScPB87q70lix1qjP2vxfEyjElZzJIpKOSqjg&usqp=CAU'
+                >
+                </img>
+                What People Are Saying</div>
                 {user && noUserReview() && (
                     <>
                     <button
@@ -48,6 +55,11 @@ const ReviewIndex = () => {
                             {review.description}
                         </div>
                         <div className="review-stars">
+                            <img 
+                            className="star-icon"
+                            src='/images/star.png'    
+                            >
+                            </img>
                             {review.stars}
                         </div>
                         {user && user.id === review.user_id && (
@@ -74,7 +86,7 @@ const ReviewIndex = () => {
                     </div>
                 ))}
             </div>
-        </>
+        </div>
     )
 
 }

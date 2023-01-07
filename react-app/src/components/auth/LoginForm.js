@@ -41,13 +41,13 @@ const LoginForm = () => {
 
   return (
     <form classname='login-form' onSubmit={onLogin}>
-      <div className='errors'>
+      <div className='login-outer'>
+        <div className='login-labels'>
+      <div className='errors-login'>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div className='login-outer'>
-        <div className='login-labels'>
           <div className='email-input'>
 
           </div>
