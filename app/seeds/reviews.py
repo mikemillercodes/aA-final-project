@@ -74,6 +74,18 @@ def seed_reviews():
         description="Changed my life12",
         stars=1
     )
+    review13 = Review(
+        task_id=7,
+        user_id=1,
+        description="Changed my life13",
+        stars=4
+    )
+    review14 = Review(
+        task_id=8,
+        user_id=2,
+        description="Changed my life14",
+        stars=5
+    )
 
     db.session.add(review1)
     db.session.add(review2)
@@ -87,6 +99,8 @@ def seed_reviews():
     db.session.add(review10)
     db.session.add(review11)
     db.session.add(review12)
+    db.session.add(review13)
+    db.session.add(review14)
     db.session.commit()
 
 # Uses a raw SQL query to TRUNCATE or DELETE the reviews table. SQLAlchemy doesn't

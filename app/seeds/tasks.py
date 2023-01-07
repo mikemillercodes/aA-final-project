@@ -44,6 +44,20 @@ def seed_tasks():
         price=25,
         task_img_url="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/c_fill,h_200,w_200/v1650907080/xcpcbylmwslemwypwvya.jpg"
     )
+    task7 = Task(
+        user_id=1,
+        title='Party Clean Up',
+        description="Don't hold back at your next social gathering and let a Tasker bring peace to your home the next day!",
+        price=80,
+        task_img_url="https://media.istockphoto.com/id/850937446/photo/janitor-cleaning-a-mess.jpg?s=612x612&w=0&k=20&c=ux4_LpJAhDWe_GDY8lxh8kNoIYFl99928FT0jDSp1xc="
+    )
+    task8 = Task(
+        user_id=2,
+        title='Wait in Line',
+        description="Waiting in line can be a time consuming hassle. Let one of our taskers do it for you.",
+        price=20,
+        task_img_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFsIRaptnEhMT0Xcv0JXUUX9JMD1uXjY1Ztg&usqp=CAU"
+    )
 
     db.session.add(task1)
     db.session.add(task2)
@@ -51,6 +65,8 @@ def seed_tasks():
     db.session.add(task4)
     db.session.add(task5)
     db.session.add(task6)
+    db.session.add(task7)
+    db.session.add(task8)
     db.session.commit()
 
 # Uses a raw SQL query to TRUNCATE or DELETE the tasks table. SQLAlchemy doesn't

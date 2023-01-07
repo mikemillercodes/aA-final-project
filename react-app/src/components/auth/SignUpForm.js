@@ -27,7 +27,7 @@ const SignUpForm = () => {
     e.preventDefault();
     let errors = [];
     if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
-      errors.push("That's not a valid email address. Told you we'd check.");
+      errors.push("That's not a valid email address. Please input one.");
     if (username.length < 5)
       errors.push(
         "Let's make that username a bit longer. 5 characters should do."
@@ -73,7 +73,7 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSignUp} className='signup-form'>
-      <div className='errors'>
+      <div className='errors-signup'>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}

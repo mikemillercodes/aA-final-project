@@ -1,0 +1,63 @@
+.email-input, .password-input {
+    margin-top: 10px
+}
+
+.password-input {
+    margin-bottom: 10px;
+}
+
+.login-outer {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/83/500/871/waterfall-high-resolution-desktop-wallpaper-preview.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-labels {
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 10px;
+}
+
+#login-btn, #demo-login-btn {
+    margin-bottom: 25px;
+    margin-top: 10px;
+    height: 45px;
+    width: 350px;
+    border-radius: 15px;
+    border: 2px solid darkgreen;
+    background-color: darkgreen;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+    transition: background-color 0.25s ease;
+}
+
+#login-btn:hover, #demo-login-btn:hover {
+    background-color: white;
+    color: darkgreen;
+}
+
+.errors-login {
+    font-size: 12px;
+    color: red;
+    background-color: white;
+    position: absolute;
+}
+
+.email-input-outer, .password-input-outer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.demo-login {
+    margin-top: -25px;
+}

@@ -1,0 +1,65 @@
+.review-index-outer {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.all-reviews-header {
+    font-weight: bolder;
+    margin-bottom: 15px;
+}
+
+.review-dialogue-icon {
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+}
+
+.review-this-task {
+    height: 35px;
+    width: 200px;
+    border-radius: 15px;
+    border: 2px solid white;
+    background-color: darkgreen;
+    cursor: pointer;
+    margin-right: 10px;
+    color: white;
+    transition: background-color 0.25s ease;
+    margin-bottom: 10px;
+}
+
+.review-this-task:hover {
+    background-color: white;
+    color: darkgreen;
+    border: 1px solid darkgreen;
+}
+
+.star-icon {
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+}
+
+.review-stars {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(128, 128, 128, 0.3);
+}
+
+.edit-your-review, .delete-your-review {
+    height: 35px;
+    width: 200px;
+    border-radius: 15px;
+    border: 2px solid white;
+    background-color: darkgreen;
+    cursor: pointer;
+    margin-right: 10px;
+    color: white;
+    transition: background-color 0.25s ease;
+    margin-bottom: 10px;
+}
+
+.edit-your-review:hover, .delete-your-review:hover {
+    background-color: white;
+    color: darkgreen;
+    border: 1px solid darkgreen;
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import './ReviewForm.css'
 
 const UpdateReviewForm = ({
     review,
@@ -51,11 +52,11 @@ const UpdateReviewForm = ({
                     ))}
                   </ul>
                 )}
-                <div className='inputs-container'>
-                  <div className='description-container'>
-                    <label htmlFor='desctiption-input'>Description</label>
+                <div className='inputs-container-review'>
+                  <div className='description-container-review'>
+                    <label htmlFor='description-input-review-label'>Description</label>
                     <input
-                      className='description-input'
+                      className='description-input-review'
                       onChange={e => setDescription(e.target.value)}
                       name='description-input'
                       placeholder='Describe the review.'
@@ -64,13 +65,13 @@ const UpdateReviewForm = ({
                       value={description}
                     />
                   </div>
-                  <div className='stars-container'>
+                  <div className='stars-container-review'>
                     <label htmlFor='stars-input'>Stars</label>
                     <input
-                      className='stars-input'
+                      className='stars-input-review'
                       min={0}
                       onChange={e => setStars(e.target.value)}
-                      placeholder="Make sure to accurately represent your Tasker!"
+                      placeholder="Accurately represent your Tasker!"
                       required
                       type='number'
                       value={stars}

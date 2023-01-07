@@ -1,0 +1,80 @@
+.description-input-review, .stars-input-review {
+    border-radius: 10px;
+    width: 300px;
+    padding-left: 10px;
+    display: block;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.description-input-review {
+    height: 50px;
+    margin-top: 10px;
+}
+
+.stars-input-review {
+    height: 30px;
+}
+
+.description-container-review, .stars-container-review {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-top: 15px;
+    justify-content: space-between;
+}
+
+.review-form-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/83/500/871/waterfall-high-resolution-desktop-wallpaper-preview.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.inputs-container-review {
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 10px;
+    justify-content: space-between;
+    width: 420px;
+    padding-top: 10px;
+}
+
+.review-form-submit {
+    margin-bottom: 25px;
+    margin-top: 10px;
+    height: 45px;
+    width: 420px;
+    border-radius: 15px;
+    border: 2px solid darkgreen;
+    background-color: darkgreen;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+    transition: background-color 0.25s ease;
+}
+
+.review-form-submit:hover {
+    background-color: white;
+    color: darkgreen;
+}
+
+.review-form-header-errors {
+    font-size: 12px;
+    color: red;
+    background-color: white;
+    position: absolute;
+}
+
+.email-input-outer, .password-input-outer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}

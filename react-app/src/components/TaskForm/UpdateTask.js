@@ -22,7 +22,7 @@ const TaskUpdateForm = () => {
   const [title, setTitle] = useState(task?.title);
   const [description, setDescription] = useState(task?.description);
   const [price, setPrice] = useState(task?.price);
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState([]);  
 
   const handleSubmit = async e => {
     e.preventDefault();

@@ -51,13 +51,15 @@ const TaskForm = ({
             className='task-form'
             onSubmit={handleSubmit}
           >
-            {errors.length > 0 && (
-              <ul className='task-form-header-errors'>
-                {errors.map((error, idx) => (
-                  <li key={idx}>{error}</li>
-                ))}
-              </ul>
-            )}
+            <div className='errors-create-task'>
+              {errors.length > 0 && (
+                <ul className='task-form-header-errors'>
+                  {errors.map((error, idx) => (
+                    <li key={idx}>{error}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
             <div className='inputs-container'>
               <div className='title-container'>
                 <label htmlFor='title-input'>Title</label>
@@ -97,7 +99,7 @@ const TaskForm = ({
               </div>
               {formType === 'create' && (
                 <div className='task-image'>
-                  <label htmlFor='task-image-url'>Task Image</label>
+                  <label htmlFor='task-image-url'>Task Image URL</label>
                   <input
                     className='task-img-input'
                     onChange={e => set_task_img_url(e.target.value)}

@@ -24,7 +24,7 @@ class TaskForm(FlaskForm):
             )
         ]
     )
-    price = IntegerField("Price", validators=[DataRequired(), NumberRange(min=6, max=None, message="Your hourly task rate must be $6 or more")])
+    price = IntegerField("Price", validators=[DataRequired(), NumberRange(min=6, max=999, message="Your hourly task rate must be between $6 and $999")])
     task_img_url = StringField(
         "Image URL",
         validators=[
@@ -57,5 +57,5 @@ class TaskUpdateForm(FlaskForm):
             ),
         ],
     )
-    price = IntegerField("Price", validators=[DataRequired(), NumberRange(min=6, max=None, message="Your hourly task rate must be $6 or more")])
+    price = IntegerField("Price", validators=[DataRequired(), NumberRange(min=6, max=999, message="Your hourly task rate must be between $6 and $999")])
     submit = SubmitField("Submit")
