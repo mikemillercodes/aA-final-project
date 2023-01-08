@@ -10,7 +10,11 @@ class ReviewForm(FlaskForm):
         "Description",
         validators=[
             DataRequired(),
-            Length(min=10, message="A description of at least 10 characters would be better!")
+            Length(
+                min=10,
+                max=1500,
+                message="Please make your description between 10 and 1,500 characters.",
+            ),
         ]
     )
     stars = IntegerField("Stars", validators=[DataRequired(), NumberRange(1,5)])
@@ -21,7 +25,11 @@ class ReviewUpdateForm(FlaskForm):
         "Description",
         validators=[
             DataRequired(),
-            Length(min=10, message="A description of at least 10 characters would be better!")
+            Length(
+                min=10,
+                max=1500,
+                message="Please make your description between 10 and 1,500 characters.",
+            ),
         ]
     )
     stars = IntegerField("Stars", validators=[DataRequired(), NumberRange(1,5)])
