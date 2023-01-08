@@ -27,14 +27,22 @@ const ReviewUpdateForm = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    let errors = [];
+    if (description.trim() === '') errors.push("You can't submit an empty description!")
 
-    const updatedReview = await dispatch(
-      putSingleReview({
-        id: id,
-        description,
-        stars
-      })
-    );
+    let updatedReview;
+    if (errors.length > 0) {
+      setErrors(errors)
+    }
+    else {
+      updatedReview = await dispatch(
+        putSingleReview({
+          id: id,
+          description,
+          stars
+        })
+      );
+    }
 
     if (updatedReview) {
       updatedReview.errors ? setErrors(updatedReview.errors) : history.push(`/tasks/${taskId}`);

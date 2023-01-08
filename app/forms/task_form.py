@@ -20,8 +20,9 @@ class TaskForm(FlaskForm):
             DataRequired("Make sure to provide a brief description!"),
             Length(
                 min=10,
+                max=1500,
                 message="A description of at least 10 characters would be better!"
-            )
+            ),
         ]
     )
     price = IntegerField("Price", validators=[DataRequired(), NumberRange(min=6, max=999, message="Your hourly task rate must be between $6 and $999")])
@@ -44,7 +45,7 @@ class TaskUpdateForm(FlaskForm):
         "Title",
         validators=[
             DataRequired(),
-            Length(min=4, message="A title of at least 4 characters would be better!"),
+            Length(min=4, max=50, message="Please make your title between 4 and 50 characters."),
         ],
     )
     description = StringField(
@@ -53,7 +54,8 @@ class TaskUpdateForm(FlaskForm):
             DataRequired("Make sure to provide a brief description!"),
             Length(
                 min=10,
-                message="A description of at least 10 characters would be better!",
+                max=1500,
+                message="Please make your description between 10 and 1,500 characters.",
             ),
         ],
     )

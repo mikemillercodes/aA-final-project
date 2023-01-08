@@ -15,14 +15,23 @@ const ReviewCreateForm = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    let errors = [];
+    if (description.trim() === '') errors.push("You can't submit an empty description!")
 
-    const newReview = await dispatch(
-      postReview({
-        description,
-        stars,
-        taskId: id
-      })
-    )
+    let newReview;
+    if (errors.length > 0) {
+      setErrors(errors)
+    }
+    else {
+      newReview = await dispatch(
+        postReview({
+          description,
+          stars,
+          taskId: id
+        })
+      )
+    }
+
 
     if (newReview) {
       newReview.errors ? setErrors(newReview.errors) : history.push(`/tasks/${id}`);

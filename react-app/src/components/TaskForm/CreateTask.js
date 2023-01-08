@@ -16,15 +16,26 @@ const TaskCreateForm = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    let errors = [];
+    if (title.trim() === '') errors.push("You can't submit an empty title!");
+    if (description.trim() === '') errors.push("You can't submit an empty description!");
+    if (task_img_url.trim() === '') errors.push("You can't submit an empty task image URL!");
 
-    const newTask = await dispatch(
-      postTask({
-        title,
-        description,
-        price,
-        task_img_url
-      })
-    )
+    let newTask;
+    if (errors.length > 0) {
+      setErrors(errors)
+    }
+    else {
+      newTask = await dispatch(
+        postTask({
+          title,
+          description,
+          price,
+          task_img_url
+        })
+      )
+    }
+
 
     if (newTask) {
       newTask.errors ? setErrors(newTask.errors) : history.push(`/tasks/${newTask.id}`);
