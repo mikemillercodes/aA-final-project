@@ -26,15 +26,25 @@ const TaskUpdateForm = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    let errors = [];
+    if (title.trim() === '') errors.push("You can't submit an empty title!");
+    if (description.trim() === '') errors.push("You can't submit an empty description!");
 
-    const updatedTask = await dispatch(
-      putSingleTask({
-        id: task.id,
-        title,
-        description,
-        price
-      })
-    );
+    let updatedTask;
+    if (errors.length > 0) {
+      setErrors(errors)
+    }
+    else {
+      updatedTask = await dispatch(
+        putSingleTask({
+          id: task.id,
+          title,
+          description,
+          price
+        })
+      );
+    }
+
 
     if (updatedTask) {
       updatedTask.errors ? setErrors(updatedTask.errors) : history.push(`/tasks/${task.id}`);
