@@ -21,6 +21,20 @@ const NavBar = () => {
           </NavLink>
         </div>
         <div className='nav-right'>
+          <NavLink to={{pathname: "https://www.linkedin.com/in/mike-miller-546a1832/"}} target="_blank" exact={true} activeClassName='active'>
+            <img 
+            src='/images/linkedin-logo.png'
+            className='linkedin-logo'
+            alt='linkedin'
+            ></img>
+          </NavLink>
+          <NavLink to={{pathname: "https://github.com/mikemillercodes"}} target="_blank" exact={true} activeClassName='active'>
+            <img 
+            src='/images/github-logo.png'
+            className='github-logo'
+            alt='github'
+            ></img>
+          </NavLink>
         <NavLink to='/tasks/new' exact={true} activeClassName='active'>
           <button 
           type="button"
