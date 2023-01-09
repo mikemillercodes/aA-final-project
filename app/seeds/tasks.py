@@ -58,6 +58,62 @@ def seed_tasks():
         price=20,
         task_img_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFsIRaptnEhMT0Xcv0JXUUX9JMD1uXjY1Ztg&usqp=CAU"
     )
+    task9 = Task(
+        user_id=3,
+        title='TV Mounting',
+        description="Taskers can properly mount your TV on the wall and leave you happily clicking the remote.",
+        price=50,
+        task_img_url="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/c_fill,h_200,w_200/v1428448636/dwr5db1lu0jzugihonrq.jpg"
+    )
+    task10 = Task(
+        user_id=1,
+        title='Home Repairs',
+        description="Jacks (and Jills) of all trades can handle most of your minor home repairs.",
+        price=150,
+        task_img_url="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/c_fill,h_200,w_200/v1553040641/qsctdbs3smwibuvk93n6.jpg"
+    )
+    task11 = Task(
+        user_id=2,
+        title='Holiday Tree Decorators',
+        description="In need of Christmas tree decorating services? Hire a Tasker as your personal tree decorator!",
+        price=30,
+        task_img_url="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/c_fill,h_200,w_200/v1604362131/uz6xuslalgnvch3sex7j.jpg"
+    )
+    task12 = Task(
+        user_id=3,
+        title='Yard Work Services',
+        description="We can clean up your yard and remove any yard waste or rubbish.",
+        price=20,
+        task_img_url="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/c_fill,h_200,w_200/v1428448794/gweisgd5bxoafin5euse.jpg"
+    )
+    task13 = Task(
+        user_id=1,
+        title='Leaf Raking & Removal',
+        description="Hire a Tasker for leaf removal.",
+        price=15,
+        task_img_url="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/c_fill,h_200,w_200/v1634753782/echtivg1mpochxfbtvsb.jpg"
+    )
+    task14 = Task(
+        user_id=2,
+        title='Lawn Mowing Services',
+        description="If you're thinking 'I need my grass cut today!' then consider hiring a Tasker. Find same day lawn mowing services with TaskRabbit.",
+        price=40,
+        task_img_url="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/c_fill,h_200,w_200/v1625691609/yqintrumetdk6heb2pty.jpg"
+    )
+    task15 = Task(
+        user_id=3,
+        title='Junk Pickup',
+        description="Is your home cluttered with old furniture and junk that you want to get rid of? Hire a Tasker to remove it and haul it to the dump.",
+        price=60,
+        task_img_url="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/c_fill,h_200,w_200/v1428448636/dwr5db1lu0jzugihonrq.jpg"
+    )
+    task16 = Task(
+        user_id=1,
+        title='Vacation Plant Watering',
+        description="Wondering how to keep your plants alive while your away? Hire a Tasker for plant watering services and rest easy.",
+        price=20,
+        task_img_url="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/c_fill,h_200,w_200/v1646159948/npchnacmkfobqyqpmdms.jpg"
+    )
 
     db.session.add(task1)
     db.session.add(task2)
@@ -67,6 +123,14 @@ def seed_tasks():
     db.session.add(task6)
     db.session.add(task7)
     db.session.add(task8)
+    db.session.add(task9)
+    db.session.add(task10)
+    db.session.add(task11)
+    db.session.add(task12)
+    db.session.add(task13)
+    db.session.add(task14)
+    db.session.add(task15)
+    db.session.add(task16)
     db.session.commit()
 
 # Uses a raw SQL query to TRUNCATE or DELETE the tasks table. SQLAlchemy doesn't

@@ -86,6 +86,114 @@ def seed_reviews():
         description="Changed my life14",
         stars=5
     )
+    review15 = Review(
+        task_id=7,
+        user_id=3,
+        description="Changed my life15",
+        stars=5
+    )
+    review16 = Review(
+        task_id=8,
+        user_id=1,
+        description="Changed my life16",
+        stars=2
+    )
+    review17 = Review(
+        task_id=9,
+        user_id=2,
+        description="Changed my life17",
+        stars=3
+    )
+    review18 = Review(
+        task_id=10,
+        user_id=3,
+        description="Changed my life18",
+        stars=4
+    )
+    review19 = Review(
+        task_id=11,
+        user_id=1,
+        description="Changed my life19",
+        stars=1
+    )
+    review20 = Review(
+        task_id=12,
+        user_id=2,
+        description="Changed my life20",
+        stars=2
+    )
+    review21 = Review(
+        task_id=13,
+        user_id=3,
+        description="Changed my life21",
+        stars=4
+    )
+    review22 = Review(
+        task_id=14,
+        user_id=1,
+        description="Changed my life22",
+        stars=2
+    )
+    review23 = Review(
+        task_id=15,
+        user_id=2,
+        description="Changed my life23",
+        stars=3
+    )
+    review24 = Review(
+        task_id=16,
+        user_id=3,
+        description="Changed my life24",
+        stars=4
+    )
+    review25 = Review(
+        task_id=9,
+        user_id=1,
+        description="Changed my life25",
+        stars=5
+    )
+    review26 = Review(
+        task_id=10,
+        user_id=2,
+        description="Changed my life26",
+        stars=4
+    )
+    review27 = Review(
+        task_id=11,
+        user_id=3,
+        description="Changed my life27",
+        stars=3
+    )
+    review28 = Review(
+        task_id=12,
+        user_id=1,
+        description="Changed my life28",
+        stars=2
+    )
+    review29 = Review(
+        task_id=13,
+        user_id=2,
+        description="Changed my life29",
+        stars=3
+    )
+    review30 = Review(
+        task_id=14,
+        user_id=3,
+        description="Changed my life30",
+        stars=4
+    )
+    review31 = Review(
+        task_id=15,
+        user_id=1,
+        description="Changed my life31",
+        stars=5
+    )
+    review32 = Review(
+        task_id=16,
+        user_id=2,
+        description="Changed my life32",
+        stars=4
+    )
 
     db.session.add(review1)
     db.session.add(review2)
@@ -101,6 +209,24 @@ def seed_reviews():
     db.session.add(review12)
     db.session.add(review13)
     db.session.add(review14)
+    db.session.add(review15)
+    db.session.add(review16)
+    db.session.add(review17)
+    db.session.add(review18)
+    db.session.add(review19)
+    db.session.add(review20)
+    db.session.add(review21)
+    db.session.add(review22)
+    db.session.add(review23)
+    db.session.add(review24)
+    db.session.add(review25)
+    db.session.add(review26)
+    db.session.add(review27)
+    db.session.add(review28)
+    db.session.add(review29)
+    db.session.add(review30)
+    db.session.add(review31)
+    db.session.add(review32)
     db.session.commit()
 
 # Uses a raw SQL query to TRUNCATE or DELETE the reviews table. SQLAlchemy doesn't
