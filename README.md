@@ -5,5 +5,14 @@ Taskly is a partial clone of the website 'Taskrabbit', an online and mobile mark
 ## Live Link
 https://taskly-app.herokuapp.com/
 
-## Tech Stack
-# Frameworks, Platforms, and Libraries
+## Tech Stack (Frameworks, Platforms, and Libraries)
+Python, Flask, JavaScript, React, Redux, CSS3 and HTML5.
+
+## Database
+Postgres
+
+## Hosting
+Heroku
+
+MVP Core Features
+
