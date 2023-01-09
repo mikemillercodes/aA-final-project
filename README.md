@@ -22,7 +22,7 @@ Heroku
 ## Reviews: CRUD
 * Logged in users can leave (create) a review on a task. 
 * Logged in users can edit or delete a review they've left. 
-* Any user (logged in or not) can view all reviews of a given task. Users can also review their own task(s).
+* Any user (logged in or not) can view all reviews of a given task.
 
 # Bonus Features (Future Development)
 
