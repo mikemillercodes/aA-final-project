@@ -17,7 +17,7 @@ const TaskIndex = () => {
 
     return (
         <div className="outer">
-            <div className="all-tasks-header">Popular Projects in Your City</div>
+            <div className="all-tasks-header">Popular Projects Near You</div>
             <div className="all-tasks-index">
                 {tasks.map((task) => (
                     <div className="task-cards-outer">
