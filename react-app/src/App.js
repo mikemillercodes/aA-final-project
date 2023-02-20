@@ -36,52 +36,20 @@ function App() {
   return (
     <BrowserRouter>
     <Switch>
-      <Route exact path='/'>
-      <NavBar />
-        <TaskIndex />
-      </Route>
+      <Route exact path='/'><NavBar /><TaskIndex /></Route>
+      <ProtectedRoute path='/tasks/:id/update' exact={true}><NavBar /><TaskUpdateForm /></ProtectedRoute>
+      <ProtectedRoute path='/tasks/:id/reviews/new' exact={true}><ReviewCreateForm /></ProtectedRoute>
+      <ProtectedRoute path='/reviews/:id/update' exact={true}><ReviewUpdateForm /></ProtectedRoute>
+      <Route path='/signup-login' exact={true}><SignupLoginSplash /></Route>
+      <Route path='/signup' exact={true}><SignUpForm /></Route>
+      <Route path='/login' exact={true}><LoginForm /> </Route>
+      <ProtectedRoute path='/users' exact={true} ><UsersList/></ProtectedRoute>
+      <ProtectedRoute path='/users/:userId' exact={true} ><User /></ProtectedRoute>
+      <Route path='/tasks/:id' exact={true}><NavBar /><SingleTask /><ReviewIndex /></Route>
+      <ProtectedRoute path='/tasks/new'><TaskCreateForm /></ProtectedRoute>
+      <Route path='/search' exact={true}><Search /></Route>
+      <Route><h1>404 Not Found</h1></Route>
     </Switch>
-      <ProtectedRoute path='/tasks/:id/update' exact={true}>
-        <NavBar />
-        <TaskUpdateForm />
-      </ProtectedRoute>
-      <ProtectedRoute path='/tasks/:id/reviews/new' exact={true}>
-        <ReviewCreateForm />
-      </ProtectedRoute>
-      <ProtectedRoute path='/reviews/:id/update' exact={true}>
-        <ReviewUpdateForm />
-      </ProtectedRoute>
-      <Switch>
-        <Route path='/signup-login' exact={true}>
-          <SignupLoginSplash />
-        </Route>
-        <Route path='/signup' exact={true}>
-          <SignUpForm />
-        </Route>
-        <Route path='/login' exact={true}>
-          <LoginForm /> 
-        </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-      </Switch>
-      <Route path='/tasks/:id' exact={true}>
-      <NavBar />
-        <SingleTask />
-        <ReviewIndex />
-      </Route>
-      <ProtectedRoute path='/tasks/new'>
-        <TaskCreateForm />
-      </ProtectedRoute>
-      <Route
-        path='/search'
-        exact={true}
-      >
-        <Search />
-      </Route>
     </BrowserRouter>
   );
 }
