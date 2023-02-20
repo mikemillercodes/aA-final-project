@@ -3,7 +3,7 @@
 const LOAD_TASKS = 'tasks/LOAD';
 const CREATE_TASK = '/tasks/NEW';
 const DELETE_TASK = '/tasks/DELETE';
-const SEARCH_TASK = '/products/SEARCH';
+const SEARCH_TASKS = '/products/SEARCH';
 
 export const loadTasks = tasks => {
     return {
@@ -107,6 +107,11 @@ const initialState = {};
 
 const allTasksReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SEARCH_TASKS:
+            return action.results.query.reduce((results, result) => {
+                results[result.id] = result;
+                return results;
+            }, {});
         case LOAD_TASKS:
             return action.tasks.Tasks.reduce((tasks, task) => {
                 tasks[task.id] = task;
