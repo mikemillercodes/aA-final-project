@@ -3,6 +3,7 @@
 const LOAD_TASKS = 'tasks/LOAD';
 const CREATE_TASK = '/tasks/NEW';
 const DELETE_TASK = '/tasks/DELETE';
+const SEARCH_TASK = '/products/SEARCH';
 
 export const loadTasks = tasks => {
     return {
@@ -22,6 +23,13 @@ export const removeTask = taskId => {
     return {
         type: DELETE_TASK,
         taskId
+    };
+};
+
+export const searchTask = results => {
+    return {
+        type: SEARCH_TASK,
+        results
     };
 };
 
