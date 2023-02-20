@@ -86,6 +86,17 @@ export const postTask = payload => async dispatch => {
     }
   }
 
+  export const searchQuery = query => async dispatch => {
+    let formattedQuery = query.split('+').join(' ');
+    const response = await fetch(`/api/search/${formattedQuery}`);
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(searchTasks(data));
+        return data;
+    }
+  }
+
 /* ------------------------- GETTERS ------------------------- */
 
 export const getAllTasks = state => Object.values(state.tasks);
