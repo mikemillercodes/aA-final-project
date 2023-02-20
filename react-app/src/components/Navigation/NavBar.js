@@ -21,6 +21,9 @@ const NavBar = () => {
           </NavLink>
         </div>
         <div className='nav-right'>
+          <NavLink to="/search" className="magnifying-glass-link">
+            <i className='fa-solid fa-magnifying-glass'></i>
+          </NavLink>
           <NavLink to={{pathname: "https://www.linkedin.com/in/mike-miller-546a1832/"}} target="_blank" exact={true} activeClassName='active'>
             <img 
             src='/images/linkedin-logo.png'

@@ -65,7 +65,7 @@ export default function Search() {
                 <div className="search-result">
                   <NavLink to={`/tasks/${task.id}`}>
                     <img
-                      src={task.taskImages[task.task_img_url].url}
+                      src={task.task_img_url}
                       alt="search-result-product"
                     />
                   </NavLink>
