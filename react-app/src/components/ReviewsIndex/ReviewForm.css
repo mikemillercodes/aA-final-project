@@ -33,6 +33,7 @@
     background-image: url('https://c4.wallpaperflare.com/wallpaper/83/500/871/waterfall-high-resolution-desktop-wallpaper-preview.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    object-fit: cover;
 }
 
 .inputs-container-review {

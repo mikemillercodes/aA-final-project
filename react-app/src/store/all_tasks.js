@@ -3,6 +3,7 @@
 const LOAD_TASKS = 'tasks/LOAD';
 const CREATE_TASK = '/tasks/NEW';
 const DELETE_TASK = '/tasks/DELETE';
+const SEARCH_TASKS = '/products/SEARCH';
 
 export const loadTasks = tasks => {
     return {
@@ -22,6 +23,13 @@ export const removeTask = taskId => {
     return {
         type: DELETE_TASK,
         taskId
+    };
+};
+
+export const searchTasks = results => {
+    return {
+        type: SEARCH_TASKS,
+        results
     };
 };
 
@@ -78,6 +86,17 @@ export const postTask = payload => async dispatch => {
     }
   }
 
+  export const searchQuery = query => async dispatch => {
+    let formattedQuery = query.split('+').join(' ');
+    const response = await fetch(`/api/search/${formattedQuery}`);
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(searchTasks(data));
+        return data;
+    }
+  }
+
 /* ------------------------- GETTERS ------------------------- */
 
 export const getAllTasks = state => Object.values(state.tasks);
@@ -88,6 +107,11 @@ const initialState = {};
 
 const allTasksReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SEARCH_TASKS:
+            return action.results.query.reduce((results, result) => {
+                results[result.id] = result;
+                return results;
+            }, {});
         case LOAD_TASKS:
             return action.tasks.Tasks.reduce((tasks, task) => {
                 tasks[task.id] = task;
