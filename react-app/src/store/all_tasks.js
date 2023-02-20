@@ -26,9 +26,9 @@ export const removeTask = taskId => {
     };
 };
 
-export const searchTask = results => {
+export const searchTasks = results => {
     return {
-        type: SEARCH_TASK,
+        type: SEARCH_TASKS,
         results
     };
 };
